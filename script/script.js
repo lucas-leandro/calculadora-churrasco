@@ -1,12 +1,15 @@
-let qtdAdultos = document.getElementById("adultos").value;
-let qtdCriancas = document.getElementById("criancas").value;
-let qtdHoras = document.getElementById("hora").value;
+let Adultos = document.getElementById("adultos");
+let Criancas = document.getElementById("criancas");
+let Horas = document.getElementById("hora");
 let resultado = document.getElementById("resultado");
 
-console.log(qtdAdultos);
 
 function calcularQtd(){ 
     
+    let qtdAdultos = Adultos.value;
+    let qtdCriancas = Criancas.value;
+    let qtdHoras = Horas.value;
+
     if(qtdHoras >= 6){
         qtdCarne = 650;
         qtdCerveja = 2000;
@@ -21,7 +24,7 @@ function calcularQtd(){
     let qtdCervejaTotal = qtdCerveja * qtdAdultos;
     let qtdRefrigeranteTotal = (qtdRefrigerante * qtdAdultos + (qtdRefrigerante / 2 * qtdCriancas));
 
-    resultado.innerHTML = '<p> '+ qtdCarneTotal + 'G de carne</p>'
-    resultado.innerHTML += '<p> '+ qtdCervejaTotal + 'ML de Cerveja</p>'
-    resultado.innerHTML += '<p> '+ qtdRefrigeranteTotal + 'ML de carne</p>'
+    resultado.innerHTML = '<p> '+ (qtdCarneTotal/1000) + ' Kg de carne</p>'
+    resultado.innerHTML += '<p> '+Math.ceil(qtdCervejaTotal/355) + ' Latas de Cerveja</p>'
+    resultado.innerHTML += '<p> ' +Math.ceil(qtdRefrigeranteTotal/2000) + ' Garrafas de 2L de carne</p>'
 }
